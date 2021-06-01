@@ -1,0 +1,49 @@
+If index starts from 1:
+
+int left=2*index;
+int right=2*index+1;
+
+
+void HeapSort(int len){
+    for(int i=len/2; i>=1; i--){
+        MaxHeapify(i,len);
+    }
+    for(int i=len;i>1;i--){
+        swap(a[0],a[i]);
+        MaxHeapify(0,i);
+    }
+
+}
+
+for(int i=1;i<100;i++){
+        cin>>a[i];
+        if(a[i]==-1){
+            len=i-1;
+            break;
+        }
+ }
+
+
+
+if starts from 0:
+int left=2*index+1;
+int right=2*index+2;
+
+void HeapSort(int len){
+    for(int i=len/2-1; i>=0; i--){
+        MaxHeapify(i,len);
+    }
+    for(int i=len-1;i>0;i--){
+        swap(a[0],a[i]);
+        MaxHeapify(0,i);
+    }
+
+}
+
+for(int i=0;i<100;i++){
+        cin>>a[i];
+        if(a[i]==-1){
+            len=i;
+            break;
+        }
+    }

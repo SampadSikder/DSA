@@ -3,7 +3,7 @@ using namespace std;
 #define INF 1e9 + 5
 #define DIAGONAL -1
 #define UP -2
-#define UPLEFT -3
+#define UPRIGHT -3
 const int N = 100;
 int A[N][N];
 int b[N][N] = {0};
@@ -38,7 +38,7 @@ int rock_climbing(int C[][100], int n, int m)
             }
             if (A[i][j] == C[i - 1][j - 1] + A[i - 1][j + 1])
             {
-                b[i][j] = UPLEFT;
+                b[i][j] = UPRIGHT;
             }
         }
     }
@@ -70,18 +70,18 @@ void print_path(int C[][100], int n, int m)
     {
         if (b[i][j] == DIAGONAL)
         {
-            cout << C[i - 1][j - 1] << "->";
+            cout << C[i - 1][j - 1] << " ";
             i--;
             j--;
         }
-        else if (C[i][j] == UP)
+        else if (b[i][j] == UP)
         {
-            cout << C[i - 1][j - 1] << "->";
+            cout << C[i - 1][j - 1] << " ";
             i--;
         }
-        else if (b[i][j] == UPLEFT)
+        else if (b[i][j] == UPRIGHT)
         {
-            cout << C[i - 1][j - 1] << "->";
+            cout << C[i - 1][j - 1] << " ";
             i--;
             j++;
         }
@@ -89,6 +89,7 @@ void print_path(int C[][100], int n, int m)
 }
 int main()
 {
+    freopen("in.txt", "r", stdin);
     int C[N][N];
     int row, col;
     cin >> row >> col;

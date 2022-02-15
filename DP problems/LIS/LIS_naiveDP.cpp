@@ -35,7 +35,7 @@ void print_LIS(int arr[], int n)
 {
     int i = n - 1;
     vector<int> res;
-    while (i > 0)
+    while (i >= 0)
     {
         res.push_back(arr[i]);
         i = prevv[i];

@@ -25,23 +25,6 @@ int mcm(int p[], int i, int j)
         }
     }
     return m[i][j];
-    /*for (int l = 2; l <= n; l++)
-    { // l indicate kore koyta multiply kortisi
-        for (int i = 1; i <= n - l + 1; i++)
-        {
-            int j = i + l - 1; // l length er matrix kothay sesh hobe
-            m[i][j] = INF;     // for minimum
-            for (int k = i; k <= j - 1; k++)
-            {
-                int q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
-                if (q < m[i][j])
-                {
-                    m[i][j] = q;
-                    s[i][j] = k;
-                }
-            }
-        }
-    }*/
 }
 int memoised(int p[], int n)
 {
@@ -56,7 +39,7 @@ int memoised(int p[], int n)
 }
 int main()
 {
-    // freopen("mcm.txt", "r", stdin);
+    freopen("in.txt", "r", stdin);
     int n;
     cin >> n;
     int p[n];
@@ -77,17 +60,4 @@ int main()
         }
         cout << endl;
     }
-
-    /*for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cout << s[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout << "------------" << endl;
-    cout << "Optimal cost:" << endl;*/
-
-    // print_parens(1, n - 1);
 }

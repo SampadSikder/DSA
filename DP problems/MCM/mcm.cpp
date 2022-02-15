@@ -21,10 +21,30 @@ int mcm(int p[], int i, int j)
     {
         for (int k = i; k < j; k++)
         {
-            m[i][j] = min(mcm(p, i, k) + mcm(p, k + 1, j) + p[i - 1] * p[k] * p[j], m[i][j]);
+            int q = min(mcm(p, i, k) + mcm(p, k + 1, j) + p[i - 1] * p[k] * p[j], m[i][j]);
+            if (q < m[i][j])
+            {
+                m[i][j] = q;
+                s[i][j] = k;
+            }
         }
     }
     return m[i][j];
+}
+void print(int i, int j)
+{
+    if (i == j)
+    {
+        cout << "A" << i << " ";
+        return;
+    }
+    else
+    {
+        cout << "(";
+        print(i, s[i][j]);
+        print(s[i][j] + 1, j);
+        cout << ")";
+    }
 }
 int memoised(int p[], int n)
 {
@@ -60,4 +80,5 @@ int main()
         }
         cout << endl;
     }
+    print(1, 5);
 }

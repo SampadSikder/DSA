@@ -19,9 +19,9 @@ int mcm(int p[], int i, int j)
 
     else
     {
-        for (int k = i; k < j; k++)
+        for (int k = i; k <= j - 1; k++)
         {
-            int q = min(mcm(p, i, k) + mcm(p, k + 1, j) + p[i - 1] * p[k] * p[j], m[i][j]);
+            int q = mcm(p, i, k) + mcm(p, k + 1, j) + p[i - 1] * p[k] * p[j];
             if (q < m[i][j])
             {
                 m[i][j] = q;
@@ -29,6 +29,7 @@ int mcm(int p[], int i, int j)
             }
         }
     }
+
     return m[i][j];
 }
 void print(int i, int j)
@@ -41,8 +42,8 @@ void print(int i, int j)
     else
     {
         cout << "(";
-        print(i, s[i][j]);
-        print(s[i][j] + 1, j);
+        print(i, s[i][j]);     // k porjonto
+        print(s[i][j] + 1, j); // k+1 theke last porjonto
         cout << ")";
     }
 }
@@ -80,5 +81,14 @@ int main()
         }
         cout << endl;
     }
-    print(1, 5);
+    print(1, n - 1);
+
+    /*for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << s[i][j] << " ";
+        }
+        cout << endl;
+    }*/
 }

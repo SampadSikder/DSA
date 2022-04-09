@@ -1,3 +1,4 @@
+// coin change
 #include <bits/stdc++.h>
 using namespace std;
 int count(int p[], int n, int m)
@@ -23,7 +24,7 @@ int count(int p[], int n, int m)
             {
                 y = dp[i][j - 1];
             }
-            dp[i][j] = x + y;
+            dp[i][j] = x + y; // include and exclude addition
         }
     }
 

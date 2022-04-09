@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 100;
+#define INF 1e9
 int L[N];
 int prevv[N];
 int LIS_naiveDP(int arr[], int n)
@@ -14,7 +15,7 @@ int LIS_naiveDP(int arr[], int n)
 
     for (int i = 1; i <= n; i++)
     {
-        L[i] = 0;
+        L[i] = -INF;
         for (int j = 0; j < i; j++)
         {
             if (arr[i] > arr[j] && L[i] < L[j] + 1)
